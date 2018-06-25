@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+  <h1>Novo Motorista</h1>
+  <form action="#" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="usuario">Usuário</label>
+        <select class="form-control" id="usuario">
+            {% for usuario in lista_usuarios %}
+                <option value="{{ usuario.pk }}">{{ usuario.username }}</option>
+            {% endfor %}
+        </select>
+      </div>
+    <div class="form-group">
+        <label for="nome">nome</label>
+        <input type="text" class="form-control" id="nome" name="modelo">
+    </div>
+    <div class="form-group">
+        <label for="cpf">cpf</label>
+        <input type="text" class="form-control" id="cpf" name="tipo">
+    </div>
+    <div class="form-group">
+        <label for="matricula">matricula</label>
+        <input type="text" class="form-control" id="matricula" name="combustivel">
+    </div>
+   
+    <button type="submit" class="btn btn-success" role='button'>Salvar</button>
+    <a href="/motoristas" class="btn btn-secondary"> Cancelar</a>
+  </form>
+  
+{% endblock %}

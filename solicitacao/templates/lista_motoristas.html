@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Lista de Motoristas</h1>
+
+    <a class="btn btn-primary" role='button' href='/motoristas/add'>Novo</a>
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NOME</th>
+                <th scope="col">CPF</th>
+                <th scope="col">MATRICULA</th>
+                <th scope="col">AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in lista_motoristas %}
+                <tr>
+                    <th scope="row">{{ m.pk }}</th>
+                    <td>{{ m.nome }}</td>
+                    <td>{{ m.cpf }}</td>
+                    <td>{{ m.matricula }}</td>
+                    <td>
+                        <a href="/motoristas/editar" class="btn btn-warning" >Editar</a>
+                        <a href="/motoristas/remover" class="btn btn-danger" >Remover</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
